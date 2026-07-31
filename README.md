@@ -1,5 +1,5 @@
+
 # Rope
 
-A tool to assist RPG sessions
+A assistent tool for RPG sessions.
 
-### !!Work In Progress!!
