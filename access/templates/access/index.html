@@ -1,1 +1,11 @@
-<h1>{{ name }} Index Template</h1>
+<h1>Access</h1>
+<form action="{% url 'enter' %}" method="post">
+	{% csrf_token %}
+	<label>username</label>
+	<input name="username" placeholder="username"/>
+	<br>
+	<label>password</label>
+	<input name="password" placeholder="password"/>
+	<br>
+	<input type="submit" value="enter"/>
+</form>
