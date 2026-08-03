@@ -13,21 +13,21 @@ def access_error_description(errid):
     return ''
 
 def index(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+
+        for (it_username, it_password) in HARDCODE_USERS:
+            if it_username == username and it_password == password:
+                return redirect('/')
+
+        return redirect(f'/access?error=invalid')
+
     errid = request.GET.get('error', '')
     error = access_error_description(errid)
 
     context = {'error': error}
     return render(request, "access/index.html", context)
-
-def enter(request):
-    username = request.POST['username']
-    password = request.POST['password']
-
-    for (it_username, it_password) in HARDCODE_USERS:
-        if it_username == username and it_password == password:
-            return redirect('/')
-
-    return redirect(f'/access?error=invalid')
 
 def register(request):
     if request.method == "POST":
